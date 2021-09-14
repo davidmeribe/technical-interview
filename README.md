@@ -15,3 +15,19 @@ Assignment:
 Verify whether or not the UPC code “8 7283272832 4” is a valid code. Return true if the UPC code is valid, or false if the UPC code is not valid. Please also include your code. 
 
 */
+
+/**
+ * MY Mistakes:
+ *  - initial mistake was adding the 12 digit in the summations
+ *  - added boundary check later
+ *  - Initially used .trim() instead of .replace() - Stupid!! lol
+ *  
+ * =========
+ * Iterations:
+ *   - Initially only handled strings that were passed in.
+ *   - now adding the ability to check numbers (still converts it to strings)
+ *   
+ *   - can convert the array of strings(char) to an array of numbers:
+ *      - but the cost of running => arrayOfNumbers = arrayString.map(Number) is almost equal to the
+ *      cost of running parseInt on each digit
+ */
