@@ -2,18 +2,22 @@
  * Initial Assumptions:
  *   - The UPC to check is given as a string of numbers
  *   - If the number is already a multiple of 10 at step 5, the check digit should be 0
+ *   - Anything that isn't a number or string will return false.
  */
 
 const checkUPC = (upc) => {
-    //deals with upc passed as a number.
-    //converts it to string
-    if (!Number.isNaN(upc)){
+    let workingUPC = upc; //to avoid mutating.
+  
+    if (typeof upc === 'number'){
         //it's  a number
-        upc = upc.toString();
+         workingUPC = upc.toString();
     }
-    
-    const upcArray = upc.replace(/\s/g, '').split('');
-    
+    else if(typeof upc !== 'string'){
+        return false;
+    }
+
+    const upcArray = workingUPC.replace(/\s/g, '').split('');
+  
     if (upcArray.length !== 12){
         return false;
     }
@@ -39,7 +43,7 @@ const checkUPC = (upc) => {
  * Manual tests
  *  - Testing numbers and strings.
  */
-console.log("TESTS");
+console.log("====TESTS====");
 console.log('=================');
 console.log('Testing String entries:');
 console.log(checkUPC('8 7283272832 4'));
@@ -51,6 +55,11 @@ console.log(checkUPC(872832728324));
 console.log(checkUPC(639382000393))
 console.log(checkUPC(0));
 console.log(checkUPC(111111111111));
+console.log('====================');
+console.log('Testing Other Data types:')
+console.log(checkUPC(true));
+console.log(checkUPC(undefined));
+console.log(checkUPC({upc: 123344333}))
 
 
 /**
@@ -59,5 +68,4 @@ console.log(checkUPC(111111111111));
  *  Make the code deal with unexpected input?
  *   - already did that, for now only expecting numbers or strings.
  *   - Maybe with more testing, we could find some cases to handle outside of the above.
- * 
  */

@@ -30,4 +30,6 @@ Verify whether or not the UPC code “8 7283272832 4” is a valid code. Return 
  *   - can convert the array of strings(char) to an array of numbers:
  *      - but the cost of running => arrayOfNumbers = arrayString.map(Number) is almost equal to the
  *      cost of running parseInt on each digit
+ *    Initially used => !Number.isNaN(upc) to check for numbers, but this will apply to every datatype that is not a
+       number.
  */
