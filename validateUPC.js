@@ -1,3 +1,4 @@
+
 /**
  * Initial Assumptions:
  *   - The UPC to check is given as a string of numbers
@@ -34,6 +35,7 @@ const checkUPC = (upc) => {
     }
     sumOdd *= 3;
     let sum = sumEven + sumOdd;  
+
     let check = 10 - (sum % 10);
 
     return  check == upcArray[upcArray.length - 1]
@@ -60,6 +62,10 @@ console.log('Testing Other Data types:')
 console.log(checkUPC(true));
 console.log(checkUPC(undefined));
 console.log(checkUPC({upc: 123344333}))
+console.log('====================');
+console.log('Testing Other Extremes :')
+console.log(checkUPC('123450i92345'));
+
 
 
 /**
